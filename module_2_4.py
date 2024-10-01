@@ -4,7 +4,7 @@ not_primes = []
 
 for i in numbers:
     if i < 2:
-        not_primes.append(i)
+        del(i)
         continue
 
     is_prime = True
