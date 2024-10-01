@@ -4,7 +4,7 @@ third = int(input('Введите третье число: '))
 
 if first == second == third:
     print(3)
-elif first != second == third or first == second != third or third == first != second:
+elif first == second or first == third or third == second:
     print(2)
-elif first != second != third:
+else:
     print(0)
