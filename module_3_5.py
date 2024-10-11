@@ -2,7 +2,7 @@
 def get_multiplied_digits(number):
     str_number = str(number)
     if str_number == '0':
-        return 0
+        return 1
     elif len(str_number) == 1:
         return int(str_number)
     else:
