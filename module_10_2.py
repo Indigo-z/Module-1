@@ -1,14 +1,19 @@
 import threading
 import time
 
-
 class Knight(threading.Thread):
     def __init__(self, name, power):
         threading.Thread.__init__(self)
         self.name = str(name)
         self.power = int(power)
 
-
+    def days_word(self, days):
+        if days % 10 == 1 or days % 100 == 11:
+            return 'день'
+        elif 2 <= days % 10 <= 4 and not (12 <= days % 100 <= 14):
+            return 'дня'
+        else:
+            return 'дней'
 
 
     def run(self):
@@ -18,9 +23,9 @@ class Knight(threading.Thread):
         while enemies > 0:
             enemies -= self.power
             days += 1
-            print(f'{self.name} сражается {days} дней(дня)..., осталось {enemies} воинов.')
+            print(f'{self.name} сражается {days} {self.days_word(days)}, осталось {enemies} воинов.')
             time.sleep(1)
-        print(f'{self.name} одержал победу спустя {days} дней(дня)!')
+        print(f'{self.name} одержал победу спустя {days} {self.days_word(days)}!')
 
 first_knight = Knight('Sir Lancelot', 10)
 second_knight = Knight("Sir Galahad", 20)
